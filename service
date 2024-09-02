@@ -1,0 +1,12 @@
+[Unit]
+Description=Spigot Minecraft Server
+After=network.target
+
+[Service]
+User=quirin
+WorkingDirectory=/home/quirin/Minecraft
+ExecStart=/usr/bin/java -Xmx8G -jar spigot-1.21.jar
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
