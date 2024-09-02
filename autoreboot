@@ -1,0 +1,22 @@
+sudo nano /etc/systemd/system/daily-reboot.service
+
+[Unit]
+Description=Daily Reboot at 2 AM
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c "sleep 2; sudo reboot"
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable daily-reboot
+
+sudo systemctl start daily-reboot
+
+sudo systemctl status daily-reboot
